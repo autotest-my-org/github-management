@@ -1,0 +1,6 @@
+repositories:
+  - name: repo1
+    description: Repository One
+    visibility: "public"
+    team_permissions:
+      dev_team: ["admin"]

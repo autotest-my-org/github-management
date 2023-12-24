@@ -1,0 +1,12 @@
+teams:
+  - name: Security Team
+    description: Security Team [Learn TF]
+    privacy: closed
+    members:
+      - alex-tf-edu
+      - terraform-education2
+  - name: Developer Team
+    description: Developer Team [Learn TF]
+    privacy: closed
+    members:
+      - terraform-education1

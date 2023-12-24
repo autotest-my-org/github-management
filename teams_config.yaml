@@ -1,0 +1,6 @@
+teams:
+  - name: dev_team
+    description: Development Team
+    members:
+      - user1
+      - user2
