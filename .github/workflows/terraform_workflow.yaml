@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '*'
+      - '*/*'
+      - '**'
       - '!main'
   pull_request:
     branches:
@@ -21,7 +23,7 @@ jobs:
         echo "Branch Name: $GITHUB_REF_NAME"
         echo "Is Push to Branch: ${{ github.event_name == 'push' && github.ref_type == 'branch' }}"
         echo "Is Pull Request to Main: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}"
-        
+
     - name: Checkout Repository
       uses: actions/checkout@v3
 
