@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '*'
+      - '*/*'
+      - '**'
       - '!main'
   pull_request:
     branches:
@@ -13,9 +15,18 @@ jobs:
   terraform-job:
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+      GITHUB_OWNER: ${{ secrets.TF_GITHUB_OWNER }}
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+    
+    - name: Print vars
+      run: |
+        echo "$GITHUB_OWNER"
+        echo "$GITHUB_TOKEN"
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
