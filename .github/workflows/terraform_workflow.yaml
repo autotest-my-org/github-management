@@ -15,15 +15,11 @@ jobs:
   terraform-job:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Debug Information
-      run: |
-        echo "Event Name: $GITHUB_EVENT_NAME"
-        echo "Ref: $GITHUB_REF"
-        echo "Branch Name: $GITHUB_REF_NAME"
-        echo "Is Push to Branch: ${{ github.event_name == 'push' && github.ref_type == 'branch' }}"
-        echo "Is Pull Request to Main: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}"
+    env:
+      GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+      GITHUB_OWNER: ${{ secrets.TF_GITHUB_OWNER }}
 
+    steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
